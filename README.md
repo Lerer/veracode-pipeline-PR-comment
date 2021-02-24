@@ -63,5 +63,34 @@ The result will be as in the following example:
   <img src="https://github.com/lerer/veracode-pipeline-PR-comment/blob/main/pull-request-comment.png?raw=true" width="600px" alt="Pipeline scan output in GitHub comment"/>
 </p>
 
+-----
 
+The full `Pipeline scan` workflow:
+```yaml
+  - name: Download the Pipeline Scanner
+    uses: wei/curl@master
+    with:
+      args: -O https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip
+  - name: Unzip the Pipeline Scanner
+    run: unzip pipeline-scan-LATEST.zip
+  - name: Run Pipeline Scanner
+    id: pipeline-scan
+    continue-on-error: true
+    run: java -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --so true --file "<Archive to Scan>" --fail_on_severity="Very High, High"
+  - id: get-comment-body
+    run: |
+      body=$(cat results.txt)
+      body="${body//$'\n'/'<br>'}"
+      echo "::set-output name=body1::$body"
+  - uses: actions/github-script@v3
+    with:
+      github-token: ${{secrets.GITHUB_TOKEN}}
+    script: |
+      github.issues.createComment({
+        issue_number: context.issue.number,
+        owner: context.repo.owner,
+        repo: context.repo.repo,
+        body: "${{ steps.get-comment-body.outputs.body1 }}"
+      })
+```
 
