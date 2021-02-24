@@ -1,7 +1,7 @@
 # Veracode Pipeline Scan as Pull Request comment
 
-Veracode [Pipeline scan](https://help.veracode.com/r/c_about_pipeline_scan) allows its customers' to scan binary/code within GitHub workflows.
-See: [Pipeline Scan Examples](https://help.veracode.com/r/r_pipeline_scan_examples).
+Veracode [Pipeline scan](https://help.veracode.com/r/c_about_pipeline_scan) allows its customers' to scan binary/code within GitHub workflows.   
+See: [Pipeline Scan Examples](https://help.veracode.com/r/r_pipeline_scan_examples) for integration example.
 
 Recently, veracode introduced an Action which allows customers with free GitHub accounts and Enterprise accounts with public repositories to upload the scan results directly to the `Security` tab.
 See: [Veracode Static Analysis Pipeline scan and import of results using SARIF](https://github.com/marketplace/actions/veracode-static-analysis-pipeline-scan-and-sarif-import)
