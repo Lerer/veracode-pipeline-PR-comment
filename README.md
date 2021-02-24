@@ -23,7 +23,7 @@ __See example:__
     id: pipeline-scan
     continue-on-error: true
     run: java -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --file "<Archive to Scan>" --fail_on_severity="Very High, High"
-
+```
 
 The above is the documented was for Pipeline scan (with allowing to continue on failure).
 
@@ -35,7 +35,7 @@ Our scan command will look as follow:
     id: pipeline-scan
     continue-on-error: true
     run: java -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --so true --file "<Archive to Scan>" --fail_on_severity="Very High, High"
-    
+```   
 
 The last set of commands will simply read the output file (default name: `results.txt`) and send it to the pull request comments.
 
@@ -56,10 +56,11 @@ We can do it by adding the folllowing to the workflow:
         repo: context.repo.repo,
         body: "${{ steps.get-comment-body.outputs.body1 }}"
       })
-      
+``` 
+ 
 The result will be as in the following example:
 <p align="center">
-  <img src="https://github.com/lerer/veracode-pipeline-PR-comment/blob/master/resources/pull-request-comment.png?raw=true" width="600px" alt="Pipeline scan output in GitHub comment"/>
+  <img src="https://github.com/lerer/veracode-pipeline-PR-comment/blob/master/pull-request-comment.png?raw=true" width="600px" alt="Pipeline scan output in GitHub comment"/>
 </p>
 
 
