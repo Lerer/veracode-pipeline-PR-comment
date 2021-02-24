@@ -60,7 +60,7 @@ We can do it by adding the folllowing to the workflow:
  
 > Note - for those who are not familiar, the __`secrets.GITHUB_TOKEN`__ is automatically generated when the GitHub workflow is running. 
  
-The result will be as in the following example:
+### The result will be as in the following example:
 <p align="center">
   <img src="https://github.com/lerer/veracode-pipeline-PR-comment/blob/main/pull-request-comment.png?raw=true" width="600px" alt="Pipeline scan output in GitHub comment"/>
 </p>
