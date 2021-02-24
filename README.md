@@ -25,7 +25,7 @@ __See example:__
     run: java -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --file "<Archive to Scan>" --fail_on_severity="Very High, High"
 ```
 
-The above is the documented was for Pipeline scan (with allowing to continue on failure).
+The above is similar to the documented example for Pipeline scan (with allowing to continue on failure).
 
 In get the scan output, we will output it to a file. We can easily do it with a [Pipeline scan](https://help.veracode.com/r/c_about_pipeline_scan) build-in parameter __`-so`__ or __`--summary_output`__. (Check the documentation if you want to specify the output file name)
 
