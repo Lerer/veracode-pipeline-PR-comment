@@ -3,12 +3,12 @@
 Veracode [Pipeline scan](https://help.veracode.com/r/c_about_pipeline_scan) allows its customers' to scan binary/code within GitHub workflows.   
 See: [Pipeline Scan Examples](https://help.veracode.com/r/r_pipeline_scan_examples) for integration example.
 
-Recently, veracode introduced an Action which allows customers with free GitHub accounts and Enterprise accounts with public repositories to upload the scan results directly to the `Security` tab.
-See: [Veracode Static Analysis Pipeline scan and import of results using SARIF](https://github.com/marketplace/actions/veracode-static-analysis-pipeline-scan-and-sarif-import)
+Recently, veracode introduced an Action which allows customers with free GitHub accounts and Enterprise accounts with public repositories to upload the scan results directly to the `Security` tab.    
+__See:__ [Veracode Static Analysis Pipeline scan and import of results using SARIF](https://github.com/marketplace/actions/veracode-static-analysis-pipeline-scan-and-sarif-import)
 
 For customers who are using Enterprise Account, the `Security` tab is only available on private repositories when the [GitHub Advanced Security](https://docs.github.com/en/github/getting-started-with-github/about-github-advanced-security) is included in the entrprise license.
 
-Another alternative to display the Pipeline Scan result is to use existing Github scripts inside Workflow to send output to Pull request as a comment.
+Another alternative to display the Pipeline Scan result is to use existing Github scripts inside Workflow to send output to Pull request as a comment.   
 
 __See example:__
 
@@ -25,7 +25,7 @@ __See example:__
     run: java -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --file "<Archive to Scan>" --fail_on_severity="Very High, High"
 ```
 
-The above is similar to the documented example for Pipeline scan (with allowing to continue on failure).
+The above is similar to the documented example for Pipeline scan (with allowing to continue on failure).     
 
 In get the scan output, we will output it to a file. We can easily do it with a [Pipeline scan](https://help.veracode.com/r/c_about_pipeline_scan) build-in parameter __`-so`__ or __`--summary_output`__. (Check the documentation if you want to specify the output file name)
 
@@ -37,7 +37,7 @@ Our scan command will look as follow:
     run: java -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --so true --file "<Archive to Scan>" --fail_on_severity="Very High, High"
 ```   
 
-The last set of commands will simply read the output file (default name: `results.txt`) and send it to the pull request comments.
+The last set of commands will simply read the output file (default name: `results.txt`) and send it to the pull request comments.   
 
 We can do it by adding the folllowing to the workflow:
 ```yaml
